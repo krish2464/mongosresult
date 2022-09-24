@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <% if(editid) { %>
+    <form method="post" action="/create?id=<%= editid %>">
+      <table border="1">
+      <tr>
+        <th>name</th>
+        <th><input type="text" name="name" value="<%= edata.name %>"></th>
+      </tr>
+      <tr>
+        <th>lname</th>
+        <th><input type="text" name="lname" value="<%= edata.lname %>"></th>
+      </tr>
+      <tr>
+        <th>age</th>
+        <th><input type="text" name="age" value="<%= edata.age %>"></th>
+      </tr>
+      <tr>
+        <th>email</th>
+        <th><input type="text" name="email" value="<%= edata.email %>"></th>
+      </tr>
+       <tr>
+        <th>password</th>
+        <th><input type="password" name="password" value="<%= edata.password %>"></th>
+      </tr>
+      <tr>
+          <th>dob</th>
+          <th><input type="date" name="dob" value="<%= edata.dob %>"></th>
+      </tr>
+      <tr>
+        <th>gender</th>
+        <th><input type="radio" name="gender" value="male" value="<%= edata.male %>">male
+          <input type="radio" name="gender" value="female" value="<%= edata.female %>">female
+        </th>
+      </tr>
+      <tr>
+        <th>phone</th>
+        <th><input type="text" name="phone" value="<%= edata.phone %>"></th>
+      </tr>
+      <tr>
+        <th>hobby</th>
+        <th><input type="checkbox" name="hobby" value="cricket" value="<%= edata.cricket %>">cricket 
+          <input type="checkbox" name="hobby" value="music" value="<%= edata.music %>">music
+          <input type="checkbox" name="hobby" value="singing" value="<%= edata.singing %>">singing
+        </th>
+       
+      </tr>
+      <tr>
+        <th>address</th>
+        <th><input type="text" name="address" value="<%= edata.address %>"></th>
+      </tr>
+      <tr>
+        <th>s1</th>
+        <th><input type="number" name="s1" value="<%= edata.s1 %>"></th>
+      </tr>
+      <tr>
+        <th>s2</th>
+        <th><input type="number" name="s2" value="<%= edata.s2 %>"></th>
+      </tr>
+      <tr>
+        <th>s3</th>
+        <th><input type="number" name="s3" value="<%= edata.s3 %>"></th>
+      </tr>
+      <tr>
+        <th>s4</th>
+        <th><input type="number" name="s4" value="<%= edata.s4 %>"></th>
+      </tr>
+      <tr>
+        <th>s5</th>
+        <th><input type="number" name="s5" value="<%= edata.s5 %>"></th>
+      </tr>
+      <tr>
+        <th>submit</th>
+        <th><input type="submit" name="submit"></th>
+      </tr>
+    </table>
+    </form>
+<% } else { %>
+     
+    <form method="post" action="/create">
+      <table border="1">
+      <tr>
+        <th>name</th>
+        <th><input type="text" name="name"></th>
+      </tr>
+      <tr>
+        <th>lname</th>
+        <th><input type="text" name="lname"></th>
+      </tr>
+      <tr>
+        <th>age</th>
+        <th><input type="text" name="age"></th>
+      </tr>
+      <tr>
+        <th>email</th>
+        <th><input type="text" name="email"></th>
+      </tr>
+       <tr>
+        <th>password</th>
+        <th><input type="password" name="password"></th>
+      </tr>
+      <tr>
+          <th>dob</th>
+          <th><input type="date" name="dob"></th>
+      </tr>
+      <tr>
+        <th>gender</th>
+        <th><input type="radio" name="gender" value="male">male
+          <input type="radio" name="gender" value="female">female
+        </th>
+      </tr>
+      <tr>
+        <th>phone</th>
+        <th><input type="text" name="phone"></th>
+      </tr>
+      <tr>
+        <th>hobby</th>
+        <th><input type="checkbox" name="hobby" value="cricket">cricket 
+          <input type="checkbox" name="hobby" value="music">music
+          <input type="checkbox" name="hobby" value="singing">singing
+        </th>
+       
+      </tr>
+      <tr>
+        <th>address</th>
+        <th><input type="text" name="address"></th>
+      </tr>
+      <tr>
+        <th>s1</th>
+        <th><input type="number" name="s1"></th>
+      </tr>
+      <tr>
+        <th>s2</th>
+        <th><input type="number" name="s2"></th>
+      </tr>
+      <tr>
+        <th>s3</th>
+        <th><input type="number" name="s3"></th>
+      </tr>
+      <tr>
+        <th>s4</th>
+        <th><input type="number" name="s4"></th>
+      </tr>
+      <tr>
+        <th>s5</th>
+        <th><input type="number" name="s5"></th>
+      </tr>
+      <tr>
+        <th>submit</th>
+        <th><input type="submit" name=""></th>
+      </tr>
+    </table>
+    </form>
+    <% } %>
+    <table border="1">
+        <tr>
+          <th>name</th>
+          <th>lname</th>
+          <th>age</th>
+          <th>email</th>
+          <th>password</th>
+          <th>dob</th>
+          <th>gender</th>
+          <th>phone</th>
+          <th>hobby</th>
+          <th>address</th>
+          <th>s1</th>
+          <th>s2</th>
+          <th>s3</th>
+          <th>s4</th>
+          <th>s5</th>
+          <th>delete</th>
+          <th>edit</th>
+        </tr>
+        <% data.forEach(function(i){ %> 
+          <tr>
+            <th><%= i.name %></th>
+            <th><%= i.lname %></th>
+            <th><%= i.age %></th>
+            <th><%= i.email %></th>
+            <th><%= i.password %></th>
+            <th><%= i.dob %></th>
+             <th><%= i.gender %></th>
+             <th><%= i.phone %></th>
+             <th><%= i.hobby %></th>
+             <th><%= i.address %></th>
+             <th><%= i.s1 %></th>
+             <th><%= i.s2 %></th>
+             <th><%= i.s3 %></th>
+             <th><%= i.s4 %></th>
+             <th><%= i.s5 %></th>
+             <th><a href="/?id=<%= i.id %>">delete</a></th>
+             <th><a href="/?eid=<%= i.id%>">Edit</a></th>
+          </tr>
+          <% }) %>
+        
+    </table>
+  </body>
+</html>
